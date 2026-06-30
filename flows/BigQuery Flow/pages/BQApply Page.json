@@ -1,0 +1,50 @@
+{
+  "name": "713534c7-a591-42ed-82a5-e40b47588051",
+  "displayName": "BQApply Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "Webhook_response",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "Project name: $session.params.Project_name" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "$session.params.Webhook_response Would you like to request any other resources?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "BQSaveConfigurationWebhook",
+    "tag": "ApplyConfig",
+    "setParameterActions": [ {
+      "parameter": "Project_name",
+      "value": "$sys.func.CONCATENATE($sys.func.LOWER($session.params.Operating_company), \"-\", $sys.func.LOWER($session.params.Application_short_name), \"-\", $sys.func.LOWER($sys.func.MID($sys.func.TO_TEXT($session.params.Application_environment), 2, 1)))"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "BQapply.yes",
+    "triggerFulfillment": {
+    
+    },
+    "name": "d9a77e44-4dc2-4bd7-a0ad-8317dc7139be",
+    "targetPlaybook": "Resource Playbook"
+  }, {
+    "intent": "BQapply.exit",
+    "triggerFulfillment": {
+    
+    },
+    "name": "8eba7527-fb96-4507-b65d-ba4f48349c8e",
+    "targetPlaybook": "End Playbook"
+  } ]
+}

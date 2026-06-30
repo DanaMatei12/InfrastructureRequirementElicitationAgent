@@ -1,0 +1,36 @@
+{
+  "name": "a2158f2f-061f-4043-bbc3-76a0f9e92c3a",
+  "displayName": "BQConfirmation Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "This is to confirm the BigQuery dataset information:  \r\nBigQuery dataset name: $session.params.BQ_dataset_name\r\nTime travel window: $session.params.BQ_time_travel \r\n\r\nIs this correct?" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "BQconfirmation.yes",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "BQApply Page",
+    "name": "bf55ec92-e828-4e40-81c5-c163a64d5396"
+  }, {
+    "intent": "BQconfirmation.no",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "BQ_dataset_name",
+        "value": null
+      }, {
+        "parameter": "BQ_time_travel",
+        "value": null
+      } ]
+    },
+    "targetPage": "BQConfiguration Page",
+    "name": "3c1417c3-9806-434c-880d-acec14b54794"
+  } ]
+}

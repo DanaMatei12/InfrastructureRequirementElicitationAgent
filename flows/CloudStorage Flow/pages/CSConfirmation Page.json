@@ -1,0 +1,36 @@
+{
+  "name": "e1b0971a-e2ae-409d-af6b-88b23fa824f0",
+  "displayName": "CSConfirmation Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "This is to confirm the storage bucket information:  \r\nBucket name: $session.params.CS_bucket_name\r\nStorage class: $session.params.CS_storage_class\r\n\r\nIs this correct?" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "CSconfirmation.yes",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CSApply Page",
+    "name": "f16c5ee8-e937-433d-bd10-9597b50f1c3c"
+  }, {
+    "intent": "CSconfirmation.no",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "CS_bucket_name",
+        "value": null
+      }, {
+        "parameter": "CS_storage_class",
+        "value": null
+      } ]
+    },
+    "targetPage": "CSConfiguration Page",
+    "name": "139c863b-391f-41ee-9202-564cefa3f21b"
+  } ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "7ef6c7e1-2542-4e00-ab00-fc754e69ab99",
+  "displayName": "Resource Playbook",
+  "goal": "Use deterministic flows to gather required resource configuration information",
+  "tokenCount": 140,
+  "referencedFlows": [ "BigQuery Flow", "CloudStorage Flow" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Inform the user that you can help with specifying a new data warehouse on BigQuery or a storage on Google Cloud Storage."
+    }, {
+      "text": "If the user wants a BigQuery data warehouse, route the user directly to ${FLOW:BigQuery Flow}"
+    }, {
+      "text": "If the user wants a Cloud Storage bucket, route the user directly to ${FLOW:CloudStorage Flow}"
+    } ]
+  },
+  "playbookType": "TASK",
+  "codeBlock": {
+  
+  }
+}

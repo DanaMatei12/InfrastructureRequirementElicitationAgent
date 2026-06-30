@@ -1,0 +1,44 @@
+{
+  "name": "9e7ef7b2-f6d2-4a24-92d3-e10229ffd579",
+  "displayName": "CSConfiguration Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "CS_bucket_name",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the preferred storage bucket name? The proposed name gcs-$sys.func.LOWER($session.params.Operating_company)-$sys.func.LOWER($session.params.Application_short_name) is aligned to the project name and the naming convention." ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "CS_storage_class",
+      "required": true,
+      "entityType": "@CSstorage_class_type",
+      "isList": true,
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the preferred storage class? This can be Standard, Nearline, Coldline or Archive." ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+    
+    },
+    "targetPage": "CSConfirmation Page",
+    "name": "6495eada-d334-4c8f-a948-7cbdd675b3fa"
+  } ]
+}

@@ -1,0 +1,15 @@
+{
+  "entities": [ {
+    "value": "Production",
+    "synonyms": [ "Production" ],
+    "languageCode": "en"
+  }, {
+    "value": "Test",
+    "synonyms": [ "Test" ],
+    "languageCode": "en"
+  }, {
+    "value": "Development",
+    "synonyms": [ "Development" ],
+    "languageCode": "en"
+  } ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "d90d3b9e-bb93-4de4-aafb-19812401ac25",
+  "displayName": "BQSaveConfigurationWebhook",
+  "genericWebService": {
+    "uri": "https://infra-agent-webhook-146862059073.europe-west3.run.app",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"Request_type\": \"BQ_dataset\",\n  \"Operating_company\": \"$session.params.Operating_company\",\n  \"Operating_company_country\": \"$session.params.Operating_company_country\",\n  \"Cartesis_code\": \"$session.params.Cartesis_code\",\n  \"Application_short_name\": \"$session.params.Application_short_name\",\n  \"Application_environment\": \"$session.params.Application_environment[0]\",\n  \"Project_name\": \"$session.params.Project_name\",\n  \"GCP_region\": \"$session.params.GCP_region[0]\",\n  \"BQ_dataset_name\": \"$session.params.BQ_dataset_name\",\n  \"BQ_time_travel\": \"$session.params.BQ_time_travel\"\n}",
+    "parameterMapping": [ {
+      "key": "Webhook_response",
+      "value": "$.webhook_response.message.text"
+    } ]
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

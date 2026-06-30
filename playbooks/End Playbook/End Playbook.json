@@ -1,0 +1,15 @@
+{
+  "name": "ef456380-5eb9-4100-8af0-c9595b5507d5",
+  "displayName": "End Playbook",
+  "goal": "Thank the user and end the session ",
+  "tokenCount": 16,
+  "instruction": {
+    "steps": [ {
+      "text": "Thank the user and say goodbye"
+    } ]
+  },
+  "playbookType": "ROUTINE",
+  "codeBlock": {
+  
+  }
+}

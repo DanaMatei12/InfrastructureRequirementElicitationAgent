@@ -1,0 +1,16 @@
+{
+  "name": "afeffcc0-199d-4a55-a8f3-919be1617809",
+  "displayName": "Identification Playbook",
+  "goal": "Use deterministic flows to gather required user organization and business application information",
+  "tokenCount": 59,
+  "referencedFlows": [ "Identification Flow" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Directly route the user to ${FLOW:Identification Flow}."
+    } ]
+  },
+  "playbookType": "TASK",
+  "codeBlock": {
+  
+  }
+}

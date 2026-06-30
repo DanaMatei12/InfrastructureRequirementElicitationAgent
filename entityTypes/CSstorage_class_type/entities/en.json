@@ -1,0 +1,19 @@
+{
+  "entities": [ {
+    "value": "Archive",
+    "synonyms": [ "Archive" ],
+    "languageCode": "en"
+  }, {
+    "value": "Coldline",
+    "synonyms": [ "Coldline" ],
+    "languageCode": "en"
+  }, {
+    "value": "Nearline",
+    "synonyms": [ "Nearline" ],
+    "languageCode": "en"
+  }, {
+    "value": "Standard",
+    "synonyms": [ "Standard" ],
+    "languageCode": "en"
+  } ]
+}

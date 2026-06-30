@@ -1,0 +1,17 @@
+{
+  "name": "965d2cfe-1423-4bb3-8cd0-12ea8cb2770e",
+  "displayName": "CSSaveConfigurationWebhook",
+  "genericWebService": {
+    "uri": "https://infra-agent-webhook-146862059073.europe-west3.run.app",
+    "webhookType": "FLEXIBLE",
+    "httpMethod": "POST",
+    "requestBody": "{\n  \"Request_type\": \"CS_bucket\",\n  \"Operating_company\": \"$session.params.Operating_company\",\n  \"Operating_company_country\": \"$session.params.Operating_company_country\",\n  \"Cartesis_code\": \"$session.params.Cartesis_code\",\n  \"Application_short_name\": \"$session.params.Application_short_name\",\n  \"Application_environment\": \"$session.params.Application_environment[0]\",\n  \"Project_name\": \"$session.params.Project_name\",\n  \"GCP_region\": \"$session.params.GCP_region[0]\",\n  \"CS_bucket_name\": \"$session.params.CS_bucket_name\",\n  \"CS_storage_class\": \"$session.params.CS_storage_class[0]\"\n}",
+    "parameterMapping": [ {
+      "key": "Webhook_response",
+      "value": "$.webhook_response.message.text"
+    } ]
+  },
+  "timeout": {
+    "seconds": 5
+  }
+}

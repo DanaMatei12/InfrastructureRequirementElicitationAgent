@@ -1,0 +1,84 @@
+{
+  "name": "d0f302ee-9ae9-46ed-84d4-e6546c543a5a",
+  "displayName": "IDConfirmation Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "Project_name",
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+        
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "This is to confirm the team and application information:  \nOperating company: $session.params.Operating_company \nLocal agency country: $session.params.Operating_company_country\nCartesis code: $session.params.Cartesis_code\nApplication short name: $session.params.Application_short_name\nApplication environment: $session.params.Application_environment\nGCP region: $session.params.GCP_region" ]
+      },
+      "languageCode": "en"
+    } ],
+    "conditionalCases": [ {
+      "cases": [ {
+        "condition": "$sys.func.LEN($session.params.Application_short_name) \u003e 0",
+        "caseContent": [ {
+          "message": {
+            "text": {
+              "text": [ "Project name: $sys.func.CONCATENATE($sys.func.LOWER($session.params.Operating_company), \"-\", $sys.func.LOWER($session.params.Application_short_name), \"-\", $sys.func.LOWER($sys.func.MID($sys.func.TO_TEXT($session.params.Application_environment), 2, 1)))" ]
+            },
+            "languageCode": "en"
+          }
+        }, {
+          "message": {
+            "text": {
+              "text": [ "Is this correct?" ]
+            },
+            "languageCode": "en"
+          }
+        } ]
+      } ]
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "confirmation.yes",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Great, let's get to the resource configuration." ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "name": "d76f8189-3cb0-4181-b011-649921adbdf9",
+    "targetPlaybook": "Resource Playbook"
+  }, {
+    "intent": "confirmation.no",
+    "triggerFulfillment": {
+      "setParameterActions": [ {
+        "parameter": "Operating_company",
+        "value": null
+      }, {
+        "parameter": "Cartesis_code",
+        "value": null
+      }, {
+        "parameter": "Operating_company_country",
+        "value": null
+      }, {
+        "parameter": "Application_short_name",
+        "value": null
+      }, {
+        "parameter": "Application_environment",
+        "value": null
+      }, {
+        "parameter": "GCP_region",
+        "value": null
+      }, {
+        "parameter": "Project_name",
+        "value": null
+      } ]
+    },
+    "targetPage": "IDConfiguration Page",
+    "name": "81337bb6-0a1c-423a-badc-952ded2991d3"
+  } ]
+}

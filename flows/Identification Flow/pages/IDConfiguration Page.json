@@ -1,0 +1,114 @@
+{
+  "name": "8d0df9d2-ae96-4278-a738-ac09f5f1f145",
+  "displayName": "IDConfiguration Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "Operating_company",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the name of your organization?" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "Operating_company_country",
+      "required": true,
+      "entityType": "@sys.geo-country",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the country of your organization's regional agency?" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "Cartesis_code",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the cost recharge cartesis code of your organization's regional agency?" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "Application_short_name",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is your application short name ? This should be up to 8 lowercase letters and will inform the GCP project and cloud resources names" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "Application_environment",
+      "required": true,
+      "entityType": "@Environment_type",
+      "isList": true,
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is your application environment  ? This can be Development / Test / Production" ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "GCP_region",
+      "required": true,
+      "entityType": "@GCP_Region",
+      "isList": true,
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the target GCP region for resource deployment? This can be europe-west2, europe-west3, us-east4, asia-southeast1 or africa-south1." ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I need to collect some basic team and application information" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for that information" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "IDConfirmation Page",
+    "name": "ef71fa7c-162a-4b38-b3d0-03fa462288ab"
+  } ]
+}

@@ -1,0 +1,23 @@
+{
+  "entities": [ {
+    "value": "africa-south1",
+    "synonyms": [ "africa-south1" ],
+    "languageCode": "en"
+  }, {
+    "value": "asia-southeast1",
+    "synonyms": [ "asia-southeast1" ],
+    "languageCode": "en"
+  }, {
+    "value": "us-east4",
+    "synonyms": [ "us-east4" ],
+    "languageCode": "en"
+  }, {
+    "value": "europe-west3",
+    "synonyms": [ "europe-west3" ],
+    "languageCode": "en"
+  }, {
+    "value": "europe-west2",
+    "synonyms": [ "europe-west2" ],
+    "languageCode": "en"
+  } ]
+}

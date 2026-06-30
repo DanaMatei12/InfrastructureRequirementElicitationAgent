@@ -1,0 +1,36 @@
+{
+  "name": "cb616153-d158-4039-a3b6-eb858d8791e9",
+  "displayName": "CSApply Page",
+  "form": {
+  
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "$session.params.Webhook_response Would you like to request any other resources?" ]
+      },
+      "languageCode": "en"
+    } ],
+    "webhook": "CSSaveConfigurationWebhook",
+    "tag": "ApplyConfig",
+    "setParameterActions": [ {
+      "parameter": "Project_name",
+      "value": "$sys.func.CONCATENATE($sys.func.LOWER($session.params.Operating_company), \"-\", $sys.func.LOWER($session.params.Application_short_name), \"-\", $sys.func.LOWER($sys.func.MID($sys.func.TO_TEXT($session.params.Application_environment), 2, 1)))"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "intent": "CSapply.exit",
+    "triggerFulfillment": {
+    
+    },
+    "name": "ba4c2001-5e25-46ea-bf1b-c20c4401416b",
+    "targetPlaybook": "End Playbook"
+  }, {
+    "intent": "CSapply.yes",
+    "triggerFulfillment": {
+    
+    },
+    "name": "5fb1dc76-156f-4191-a196-7500fec837ac",
+    "targetPlaybook": "Resource Playbook"
+  } ]
+}

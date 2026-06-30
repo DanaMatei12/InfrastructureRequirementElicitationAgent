@@ -1,0 +1,57 @@
+{
+  "name": "504d6dfa-d86a-42d3-a5b6-82455d7f104c",
+  "displayName": "BQConfiguration Page",
+  "form": {
+    "parameters": [ {
+      "displayName": "BQ_dataset_name",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the preferred dataset name? The proposed name bq-$sys.func.LOWER($session.params.Operating_company)-$sys.func.LOWER($session.params.Application_short_name) is aligned to the project name and the naming convention." ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      }
+    }, {
+      "displayName": "BQ_time_travel",
+      "required": true,
+      "entityType": "@sys.any",
+      "fillBehavior": {
+        "initialPromptFulfillment": {
+          "messages": [ {
+            "text": {
+              "text": [ "What is the preferred duration in days for the dataset time travel window ? You can access changed or deleted data from any point within the time travel window, which covers the past seven days by default. " ]
+            },
+            "languageCode": "en"
+          } ]
+        }
+      },
+      "description": "BigQuery dataset time travel window configuration"
+    } ]
+  },
+  "entryFulfillment": {
+    "messages": [ {
+      "text": {
+        "text": [ "I need to collect some basic BigQuery dataset information" ]
+      },
+      "languageCode": "en"
+    } ]
+  },
+  "transitionRoutes": [ {
+    "condition": "$page.params.status = \"FINAL\"",
+    "triggerFulfillment": {
+      "messages": [ {
+        "text": {
+          "text": [ "Thank you for that information" ]
+        },
+        "languageCode": "en"
+      } ]
+    },
+    "targetPage": "BQConfirmation Page",
+    "name": "7b11d69b-461f-49e5-a515-7bb4492b0bd0"
+  } ]
+}
